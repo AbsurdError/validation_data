@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DaTa</title>
+</head>
+<body>
+{{ data }}
+  {% for p in data %}
+<h2><p>{{ p.name }}</p></h2>
+    <p>{{ p.age }}</p>
+<!--    <img src="{{ p.photo }}">-->
+    <p>{{ p.photo }}</p>
+    <hr>
+  {% endfor %}
+</body>
+</html>

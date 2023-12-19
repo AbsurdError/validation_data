@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .alert{color:red;}
+        .form__group{margin: 10px;}
+        .form__group input{width; 250px; height: 50px; border-radius: 30px;}
+        .help{background: #000;}
+    </style>
+</head>
+<body>
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+<!--&lt;!&ndash;        {{ form.as_ul }}&ndash;&gt;-->
+<!--        <div class="class2">{{ form.name }}</div>-->
+<!--        <p class="myclass">{{ from.name.label }}</p>-->
+<!--        <p class="myclass">{{ from.name.help_text }}</p>-->
+        <div class="form__group">
+            {% for field in form %}
+                <p>{{ field.label }}</p>
+                <div>{{ field }}</div>
+                {{ field.css_classes }}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <p class="alert">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <button>Send</button>
+    </form>
+    <hr>
+<!--    <form action="" method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form.as_ul }}-->
+<!--        <button>Send</button>-->
+<!--    </form>-->
+</body>
+</html>
